@@ -1,0 +1,15 @@
+1079.31\msec\task-clock\1079312179\100.00\3.288\CPUs utilized
+120\\context-switches\1079312179\100.00\0.111\K/sec
+0\\cpu-migrations\1079312179\100.00\0.000\K/sec
+92270\\page-faults\1079312179\100.00\0.085\M/sec
+3444134740\\cycles\671921184\62.25\3.191\GHz
+55725728\\stalled-cycles-frontend\703877897\65.21\1.62\frontend cycles idle
+1501121525\\stalled-cycles-backend\707645637\65.56\43.58\backend cycles idle
+4863433251\\instructions\707604581\65.56\1.41\insn per cycle
+\\\\\0.31\stalled cycles per insn
+925558609\\branches\684618974\63.43\857.545\M/sec
+12752497\\branch-misses\655247342\60.71\1.38\of all branches
+2486760288\\L1-dcache-loads\623294188\57.75\2304.023\M/sec
+26847537\\L1-dcache-load-misses\642472292\59.52\1.08\of all L1-dcache hits
+<not supported>\\LLC-loads\0\100.00\\
+<not supported>\\LLC-load-misses\0\100.00\\

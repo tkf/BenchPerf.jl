@@ -1,0 +1,18 @@
+1314.58\msec\task-clock\1314583634\100.00\2.865\CPUs utilized
+13\\context-switches\1314583634\100.00\9.889\/sec
+1\\cpu-migrations\1314583634\100.00\0.761\/sec
+92252\\page-faults\1314583634\100.00\70.176\K/sec
+3532559691\\cycles\358115301\27.24\2.687\GHz
+2538979279\\instructions\467969993\35.59\0.72\insn per cycle
+401252572\\branches\495970413\37.72\305.232\M/sec
+6382858\\branch-misses\526440428\40.04\1.59\of all branches
+580258974\\L1-dcache-loads\558307719\42.46\441.401\M/sec
+15483546\\L1-dcache-load-misses\588707575\44.77\2.67\of all L1-dcache accesses
+1629419\\LLC-loads\450917866\34.29\1.239\M/sec
+1129768\\LLC-load-misses\422918285\32.16\69.34\of all LL-cache accesses
+<not supported>\\L1-icache-loads\0\100.00\\
+11247139\\L1-icache-load-misses\394915020\30.03\\
+669930419\\dTLB-loads\368032118\27.99\509.614\M/sec
+1347262\\dTLB-load-misses\367966715\27.99\0.20\of all dTLB cache accesses
+1039123\\iTLB-loads\365496281\27.80\790.458\K/sec
+1443186\\iTLB-load-misses\361632255\27.50\138.89\of all iTLB cache accesses

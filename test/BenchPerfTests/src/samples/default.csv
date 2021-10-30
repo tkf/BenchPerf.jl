@@ -1,0 +1,11 @@
+1094.65\msec\task-clock\1094647466\100.00\3.184\CPUs utilized
+124\\context-switches\1094647466\100.00\0.113\K/sec
+0\\cpu-migrations\1094647466\100.00\0.000\K/sec
+92541\\page-faults\1094647466\100.00\0.085\M/sec
+3410157225\\cycles\922945937\84.31\3.115\GHz
+74012542\\stalled-cycles-frontend\923947628\84.41\2.17\frontend cycles idle
+1498764411\\stalled-cycles-backend\907609886\82.91\43.95\backend cycles idle
+5107038786\\instructions\898904437\82.12\1.50\insn per cycle
+\\\\\0.29\stalled cycles per insn
+951744785\\branches\898771892\82.11\869.453\M/sec
+13069453\\branch-misses\921102550\84.15\1.37\of all branches

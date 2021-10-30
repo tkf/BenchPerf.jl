@@ -1,0 +1,20 @@
+1318.02\msec\task-clock\1318023538\100.00\2.852\CPUs utilized
+11\\context-switches\1318023538\100.00\8.346\/sec
+1\\cpu-migrations\1318023538\100.00\0.759\/sec
+92252\\page-faults\1318023538\100.00\69.993\K/sec
+3556958172\\cycles\361359889\27.41\2.699\GHz
+2436199923\\instructions\475100208\36.04\0.68\insn per cycle
+379529131\\branches\503100144\38.16\287.953\M/sec
+6140460\\branch-misses\531418760\40.31\1.62\of all branches
+548281596\\L1-dcache-loads\563312716\42.73\415.988\M/sec
+17645501\\L1-dcache-load-misses\588940097\44.68\3.22\of all L1-dcache accesses
+1578939\\LLC-loads\447200693\33.92\1.198\M/sec
+1089695\\LLC-load-misses\419208753\31.80\69.01\of all LL-cache accesses
+<not supported>\\L1-icache-loads\0\100.00\\
+11385373\\L1-icache-load-misses\391183075\29.67\\
+666863073\\dTLB-loads\367970637\27.91\505.957\M/sec
+1362286\\dTLB-load-misses\367969786\27.91\0.20\of all dTLB cache accesses
+1033286\\iTLB-loads\367643110\27.89\783.966\K/sec
+1412219\\iTLB-load-misses\363774832\27.59\136.67\of all iTLB cache accesses
+<not supported>\\L1-dcache-prefetches\0\100.00\\
+<not supported>\\L1-dcache-prefetch-misses\0\100.00\\

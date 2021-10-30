@@ -1,0 +1,12 @@
+1328.79\msec\task-clock\1328787077\100.00\2.809\CPUs utilized
+11\\context-switches\1328787077\100.00\8.278\/sec
+0\\cpu-migrations\1328787077\100.00\0.000\/sec
+92242\\page-faults\1328787077\100.00\69.418\K/sec
+3264951942\\cycles\671808224\50.55\2.457\GHz
+2427410401\\instructions\815805488\61.38\0.74\insn per cycle
+402774448\\branches\812987021\61.17\303.114\M/sec
+6375125\\branch-misses\813903919\61.24\1.58\of all branches
+650213241\\L1-dcache-loads\818039879\61.55\489.328\M/sec
+19264237\\L1-dcache-load-misses\829258982\62.39\2.96\of all L1-dcache accesses
+2029190\\LLC-loads\687162790\51.70\1.527\M/sec
+1158158\\LLC-load-misses\683139645\51.40\57.07\of all LL-cache accesses
