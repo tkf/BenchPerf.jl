@@ -1,19 +1,9 @@
-name = "BenchPerf"
-uuid = "368ecf39-6b2b-4c5b-bc36-7e7363bf3045"
-authors = ["Takafumi Arakaki <aka.tkf@gmail.com> and contributors"]
-version = "0.1.0-DEV"
-
 [deps]
+BenchPerf = "368ecf39-6b2b-4c5b-bc36-7e7363bf3045"
+BenchPerfConfigSweeps = "ff6ab34e-6c4e-401f-aa49-786a197b91d4"
+BenchmarkConfigSweeps = "5dead3b6-c9e4-435a-a292-80e2716ed6d9"
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
 JSON = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 Tables = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
-
-[compat]
-julia = "1.6"
-
-[extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 TestFunctionRunner = "792026f5-ac9a-4a19-adcb-47b0ce2deb5d"
-
-[targets]
-test = ["Test", "TestFunctionRunner"]
