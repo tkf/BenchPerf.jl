@@ -2,7 +2,7 @@ JULIA = julia
 JULIA_CMD ?= $(JULIA) --color=yes --startup-file=no
 
 # TODO: use dedicated project
-export JULIA_PROJECT = $(shell pwd)/../../test/BenchPerfTests
+export JULIA_PROJECT = $(shell pwd)/../../test/environments/main
 
 # TODO: enable this:
 # export JULIA_LOAD_PATH = @
