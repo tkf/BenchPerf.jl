@@ -1,4 +1,5 @@
 import BenchPerfConfigSweeps
+import DisplayAs
 using DataFrames
 using VegaLite
 
@@ -24,6 +25,19 @@ let
     df
 end
 
+resultdir = joinpath(@__DIR__, "result")
+mkpath(resultdir)
+
+saveresult(; plots...) = saveresult(:png, :svg; plots...)
+function saveresult(exts::Symbol...; plots...)
+    for (k, v) in plots
+        for e in exts
+            save(joinpath(resultdir, "$k.$e"), v)
+        end
+    end
+end
+nothing  # hide
+
 plt_throughput_cache_miss = @vlplot(
     vconcat = [
         {
@@ -44,9 +58,14 @@ plt_throughput_cache_miss = @vlplot(
     ],
     data = df,
 )
+saveresult(; plt_throughput_cache_miss)
+plt_throughput_cache_miss
+plt_throughput_cache_miss |> DisplayAs.PNG
 # TODO: include LLC access rate
 
-@vlplot(
+# ## Tuned `evals`
+
+plt_evals = @vlplot(
     vconcat = [
         {
             layer = [
@@ -86,5 +105,9 @@ plt_throughput_cache_miss = @vlplot(
     ],
     data = df,
 )
+saveresult(; plt_evals)
+plt_evals
+plt_evals |> DisplayAs.PNG
+#-
 
-plt_throughput_cache_miss
+plt_throughput_cache_miss  #src
