@@ -1,4 +1,6 @@
+*.ipynb
 Manifest.toml
 build
+result
 tmp
 var

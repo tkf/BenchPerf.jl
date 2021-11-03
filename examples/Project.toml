@@ -1,0 +1,9 @@
+[deps]
+BenchPerf = "368ecf39-6b2b-4c5b-bc36-7e7363bf3045"
+BenchPerfConfigSweeps = "ff6ab34e-6c4e-401f-aa49-786a197b91d4"
+BenchmarkConfigSweeps = "5dead3b6-c9e4-435a-a292-80e2716ed6d9"
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+DisplayAs = "0b91fe84-8a4c-11e9-3e1d-67c38462b6d6"
+Literate = "98b081ad-f1c9-55d3-8b20-4c87d4299306"
+VegaLite = "112f6efa-9a02-5b7d-90c0-432ed331239a"

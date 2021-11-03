@@ -1,11 +1,8 @@
 JULIA = julia
 JULIA_CMD ?= $(JULIA) --color=yes --startup-file=no
 
-# TODO: use dedicated project
-export JULIA_PROJECT = $(shell pwd)/../../test/environments/main
-
-# TODO: enable this:
-# export JULIA_LOAD_PATH = @
+export JULIA_PROJECT = $(shell pwd)/..
+export JULIA_LOAD_PATH = @
 
 .PHONY: all benchmark
 
@@ -16,3 +13,16 @@ var/benchmark.done: run.jl benchmarks.jl
 	@mkdir -p var
 	$(JULIA_CMD) run.jl
 	touch $@
+
+report.ipynb: report.jl plots.jl
+	$(JULIA_CMD) run_literate.jl
+
+result/00_report.ipynb: report.ipynb
+	@mkdir -p result
+	cp $< $@
+
+clean: clean-result
+	rm -f report.ipynb
+
+RESULT_TARGETS = result/00_report.ipynb
+include ../result.mk

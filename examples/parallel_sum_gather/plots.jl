@@ -1,4 +1,5 @@
-using BenchPerfConfigSweeps
+import BenchPerfConfigSweeps
+import DisplayAs
 using DataFrames
 using VegaLite
 
@@ -27,59 +28,88 @@ let
     df
 end
 
-df |> [
-    @vlplot(
-        mark = {:line, point = true},
-        x = {:MiB, scale = {type = :log}},
-        y = {:throughput, title = throughput_unit},
-        color = {:nthreads, type = :nominal},
-    )
-    @vlplot(
-        mark = {:line, point = true},
-        x = {:total_MiB, scale = {type = :log}},
-        y = {:throughput, title = throughput_unit},
-        color = {:nthreads, type = :nominal},
-    )
-]
+resultdir = joinpath(@__DIR__, "result")
+mkpath(resultdir)
 
-df |> [
-    @vlplot(
-        mark = {:line, point = true},
-        x = {:MiB, scale = {type = :log}},
-        y = {:throughput, title = throughput_unit},
-        color = {:nthreads, type = :nominal},
-    )
-    @vlplot(
-        mark = {:line, point = true},
-        x = {:MiB, scale = {type = :log}},
-        y = {:L1_miss_percent, title = "L1 cache miss [%]"},
-        color = {:nthreads, type = :nominal},
-    )
-    @vlplot(
-        mark = {:line, point = true},
-        x = {:MiB, scale = {type = :log}},
-        y = {:LL_miss_percent, title = "LL cache miss [%]"},
-        color = {:nthreads, type = :nominal},
-    )
-]
+saveresult(; plots...) = saveresult(:png, :svg; plots...)
+function saveresult(exts::Symbol...; plots...)
+    for (k, v) in plots
+        for e in exts
+            save(joinpath(resultdir, "$k.$e"), v)
+        end
+    end
+end
+nothing  # hide
 
-df |> [
-    @vlplot(
-        mark = {:line, point = true},
-        x = {:total_MiB, scale = {type = :log}},
-        y = {:throughput, title = throughput_unit},
-        color = {:nthreads, type = :nominal},
-    )
-    @vlplot(
-        mark = {:line, point = true},
-        x = {:total_MiB, scale = {type = :log}},
-        y = {:L1_miss_percent, title = "L1 cache miss [%]"},
-        color = {:nthreads, type = :nominal},
-    )
-    @vlplot(
-        mark = {:line, point = true},
-        x = {:total_MiB, scale = {type = :log}},
-        y = {:LL_miss_percent, title = "LL cache miss [%]"},
-        color = {:nthreads, type = :nominal},
-    )
-]
+plt_throughput_cache_miss_vs_different_input_sizes =
+    df |> [
+        @vlplot(
+            mark = {:line, point = true},
+            x = {:MiB, scale = {type = :log}},
+            y = {:throughput, title = throughput_unit},
+            color = {:nthreads, type = :nominal},
+        )
+        @vlplot(
+            mark = {:line, point = true},
+            x = {:total_MiB, scale = {type = :log}},
+            y = {:throughput, title = throughput_unit},
+            color = {:nthreads, type = :nominal},
+        )
+    ]
+saveresult(; plt_throughput_cache_miss_vs_different_input_sizes)
+plt_throughput_cache_miss_vs_different_input_sizes
+plt_throughput_cache_miss_vs_different_input_sizes |> DisplayAs.PNG
+
+plt_throughput_cache_miss_vs_per_thread_size =
+    df |> [
+        @vlplot(
+            mark = {:line, point = true},
+            x = {:MiB, scale = {type = :log}},
+            y = {:throughput, title = throughput_unit},
+            color = {:nthreads, type = :nominal},
+        )
+        @vlplot(
+            mark = {:line, point = true},
+            x = {:MiB, scale = {type = :log}},
+            y = {:L1_miss_percent, title = "L1 cache miss [%]"},
+            color = {:nthreads, type = :nominal},
+        )
+        @vlplot(
+            mark = {:line, point = true},
+            x = {:MiB, scale = {type = :log}},
+            y = {:LL_miss_percent, title = "LL cache miss [%]"},
+            color = {:nthreads, type = :nominal},
+        )
+    ]
+saveresult(; plt_throughput_cache_miss_vs_per_thread_size)
+plt_throughput_cache_miss_vs_per_thread_size
+plt_throughput_cache_miss_vs_per_thread_size |> DisplayAs.PNG
+#-
+
+plt_throughput_cache_miss_vs_total_size =
+    df |> [
+        @vlplot(
+            mark = {:line, point = true},
+            x = {:total_MiB, scale = {type = :log}},
+            y = {:throughput, title = throughput_unit},
+            color = {:nthreads, type = :nominal},
+        )
+        @vlplot(
+            mark = {:line, point = true},
+            x = {:total_MiB, scale = {type = :log}},
+            y = {:L1_miss_percent, title = "L1 cache miss [%]"},
+            color = {:nthreads, type = :nominal},
+        )
+        @vlplot(
+            mark = {:line, point = true},
+            x = {:total_MiB, scale = {type = :log}},
+            y = {:LL_miss_percent, title = "LL cache miss [%]"},
+            color = {:nthreads, type = :nominal},
+        )
+    ]
+saveresult(; plt_throughput_cache_miss_vs_total_size)
+plt_throughput_cache_miss_vs_total_size
+plt_throughput_cache_miss_vs_total_size |> DisplayAs.PNG
+#-
+
+plt_throughput_cache_miss_vs_total_size  #src
