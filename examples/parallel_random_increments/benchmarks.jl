@@ -22,7 +22,7 @@ group = BenchmarkGroup()
 for e in 5:22
     n = 2^e
     nrepeats = nrepeats_from_n(n)
-    group["n=$n"] = @benchmarkable(
+    group["n=$n"] = bench = @benchmarkable(
         threaded_increment_at!(xss, iss, $nrepeats),
         setup = begin
             Random.seed!(43)
@@ -33,7 +33,18 @@ for e in 5:22
             xss = [zeros(Int, n) for _ in 1:nt]
             iss = [rand(1:n, n) for _ in 1:nt]
         end,
+        # Larger `samples` (than the default: 10_000) to bound the benchmark by
+        # the time limit.
+        samples = 1_000_000,
     )
+    # Not tuning it like ../random_increments/benchmarks.jl since `nrepeats`
+    # already takes care of it. To verify this, uncomment the following line,
+    # run the benchmarks, and then check `unique(df.evals)`.
+    #=
+    if e < 15
+        tune!(bench)
+    end
+    =#
 end
 
 SUITE = BenchPerf.wrap(group; detailed = 1)

@@ -11,6 +11,7 @@ df_raw = DataFrame(sweepresult)
 let
     global df = select(df_raw, Not(:trial))
     df[:, :time_ns] = map(t -> minimum(t.benchmark).time, df_raw.trial)
+    # df[:, :evals] = map(t -> t.benchmark.params.evals, df_raw.trial)
     df[:, :L1_miss_percent] = map(df_raw.trial) do t
         t.perf["L1-dcache-load-misses"] / t.perf["L1-dcache-loads"] * 100
     end
@@ -42,7 +43,7 @@ df |> [
 ]
 
 df |> [
-   @vlplot(
+    @vlplot(
         mark = {:line, point = true},
         x = {:MiB, scale = {type = :log}},
         y = {:throughput, title = throughput_unit},
@@ -63,7 +64,7 @@ df |> [
 ]
 
 df |> [
-   @vlplot(
+    @vlplot(
         mark = {:line, point = true},
         x = {:total_MiB, scale = {type = :log}},
         y = {:throughput, title = throughput_unit},
