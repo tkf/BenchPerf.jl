@@ -1,0 +1,17 @@
+name: Run examples
+
+on:
+  push:
+    branches:
+      - master
+    tags: '*'
+  pull_request:
+
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    name: Examples
+    steps:
+      - uses: actions/checkout@v2
+      - uses: julia-actions/setup-julia@v1
+      - run: make -C examples
