@@ -47,4 +47,7 @@ for e in 5:22
     =#
 end
 
+include("../quick.jl")
+maybe_quick!(group)
+
 SUITE = BenchPerf.wrap(group; detailed = 1)
