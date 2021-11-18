@@ -4,6 +4,8 @@ struct PerfConfig
     detailed::Int
     event::Union{Nothing,String}
     per_thread::Bool
+    all_cpus::Bool
+    cpu::Union{Nothing,String}
     _perfopts::Cmd  # (for easily trying new options) TODO: remove this
 end
 
@@ -11,6 +13,8 @@ function as_perf_config(;
     detailed::Union{Integer,Nothing} = nothing,
     event::Union{AbstractVector{<:AbstractString},Nothing} = nothing,
     per_thread::Bool = false,
+    cpu::Union{AbstractString,Nothing} = nothing,
+    all_cpus::Bool = cpu !== nothing,
     _perfopts::Cmd = ``,
 )
     if detailed === nothing
@@ -21,7 +25,7 @@ function as_perf_config(;
     if event !== nothing
         event = join(event, ",")
     end
-    return PerfConfig(detailed, event, per_thread, _perfopts)
+    return PerfConfig(detailed, event, per_thread, all_cpus, cpu, _perfopts)
 end
 
 const CacheDict = Dict{String,Union{Float64,Int}}
@@ -63,7 +67,15 @@ function Base.Cmd(cfg::PerfConfig)
         cmd = `$cmd --per-thread`
     end
     cmd = `$cmd $(cfg._perfopts)`
-    cmd = `$cmd --field-separator=$FIELD_SEPARATOR --pid=$(getpid())`
+    cmd = `$cmd --field-separator=$FIELD_SEPARATOR`
+    if cfg.all_cpus
+        cmd = `$cmd --all-cpus`
+        if cfg.cpu !== nothing
+            cmd = `$cmd --cpu=$(cfg.cpu)`
+        end
+    else
+        cmd = `$cmd --pid=$(getpid())`
+    end
     return cmd
 end
 
