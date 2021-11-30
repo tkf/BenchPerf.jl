@@ -4,6 +4,8 @@ import Tables
 using BenchPerf.Internal: TrialPerf
 using Test
 
+load_sample(name) = TrialPerf(read(joinpath(@__DIR__, "samples", name * ".csv"), String))
+
 function load_samples()
     samples = Iterators.map(readdir(joinpath(@__DIR__, "samples"); join = true)) do path
         splitext(basename(path))[1] => TrialPerf(read(path, String))
