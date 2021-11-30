@@ -104,10 +104,10 @@ function withperf(f, cfg::PerfConfig)
 end
 
 function getcache(trial::TrialPerf)
-    ref = trial.cache
+    ref = getfield(trial, :cache)
     cache = ref[]
     if cache === nothing
-        ref[] = cache = parsestat(trial.output)
+        ref[] = cache = parsestat(getfield(trial, :output))
     end
     return cache
 end
@@ -134,6 +134,27 @@ end
 Base.keys(trial::TrialPerf) = keys(getcache(trial))
 Base.get(trial::TrialPerf, key, default) = get(getcache(trial), key, default)
 Base.getindex(trial::TrialPerf, event::AbstractString) = getcache(trial)[event]
+
+function Base.propertynames(::TrialPerf, private::Bool = false)
+    pubnames = (ALL_NAMES..., :ratio, :percent)
+    if private
+        return (pubnames..., fieldnames(TrialPerf))
+    else
+        return pubnames
+    end
+end
+
+function Base.getproperty(trial::TrialPerf, name::Symbol)
+    if name in ALL_NAMES
+        return getvalue(trial, Val{name}())
+    elseif name === :ratio
+        return RatioAccessor(trial)
+    elseif name === :percent
+        return PercentAccessor(trial)
+    else
+        return getfield(trial, name)
+    end
+end
 
 fulltable(trial::TrialPerf) = fulltable(trial.output)
 function fulltable(output::AbstractString)
