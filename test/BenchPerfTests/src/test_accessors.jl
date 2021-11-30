@@ -3,6 +3,23 @@ module TestAccessors
 using Test
 using ..TestParsing: load_sample
 
+function test_default()
+    perf = load_sample("default")
+
+    @test perf.context_switches == 124
+    @test perf.cpu_migrations == 0
+    @test perf.page_faults == 92541
+    @test perf.cycles == 3410157225
+    @test perf.stalled_cycles_frontend == 74012542
+    @test perf.stalled_cycles_backend == 1498764411
+    @test perf.instructions == 5107038786
+    @test perf.instructions_per_cycle ≈ 1.5 rtol = 0.005
+    @test perf.stalled_cycles_per_instructions ≈ 0.29 atol = 0.005
+
+    @test perf.ratio.stalled_cycles_frontend == 74012542 / 3410157225
+    @test perf.ratio.stalled_cycles_backend == 1498764411 / 3410157225
+end
+
 function test_d1_with_llc()
     perf = load_sample("d1-with-llc")
 
