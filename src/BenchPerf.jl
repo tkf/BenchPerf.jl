@@ -17,6 +17,9 @@ using BenchmarkTools
 
 if !isdefined(@__MODULE__, Symbol("@something"))
     using Compat: @something
+    const USE_COMPAT = true
+else
+    const USE_COMPAT = false
 end
 
 using ..BenchPerf: BenchPerf
