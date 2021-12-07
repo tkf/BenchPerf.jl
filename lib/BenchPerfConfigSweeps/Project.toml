@@ -1,7 +1,7 @@
 name = "BenchPerfConfigSweeps"
 uuid = "ff6ab34e-6c4e-401f-aa49-786a197b91d4"
 authors = ["Takafumi Arakaki <aka.tkf@gmail.com> and contributors"]
-version = "0.1.0-DEV"
+version = "0.1.0"
 
 [deps]
 BenchPerf = "368ecf39-6b2b-4c5b-bc36-7e7363bf3045"
