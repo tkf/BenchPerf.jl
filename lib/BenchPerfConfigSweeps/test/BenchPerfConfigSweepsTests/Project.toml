@@ -1,0 +1,12 @@
+name = "BenchPerfConfigSweepsTests"
+uuid = "9adaed9a-5e85-4496-abec-2a8a76483f3a"
+authors = ["Takafumi Arakaki <aka.tkf@gmail.com> and contributors"]
+version = "0.1.0-DEV"
+
+[deps]
+Aqua = "4c88cf16-eb10-579e-8560-4a9242c79595"
+BenchPerfConfigSweeps = "ff6ab34e-6c4e-401f-aa49-786a197b91d4"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[compat]
+julia = "1"

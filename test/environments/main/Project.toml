@@ -1,6 +1,7 @@
 [deps]
 BenchPerf = "368ecf39-6b2b-4c5b-bc36-7e7363bf3045"
 BenchPerfConfigSweeps = "ff6ab34e-6c4e-401f-aa49-786a197b91d4"
+BenchPerfConfigSweepsTests = "9adaed9a-5e85-4496-abec-2a8a76483f3a"
 BenchPerfTests = "dbd6d7b4-c1be-4615-9593-44fde9a99c40"
 BenchmarkConfigSweeps = "5dead3b6-c9e4-435a-a292-80e2716ed6d9"
 BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
