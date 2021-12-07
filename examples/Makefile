@@ -12,3 +12,7 @@ $(BENCHMARK_TARGETS): benchmark-%: Manifest.toml
 
 Manifest.toml:
 	$(JULIA_CMD) --project=. instantiate.jl
+
+reinstantiate:
+	rm -f Manifest.toml
+	$(MAKE) Manifest.toml

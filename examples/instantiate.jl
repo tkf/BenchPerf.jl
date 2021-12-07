@@ -18,4 +18,18 @@ Pkg.add([
     ),
 ])
 
+Pkg.develop([
+    PackageSpec(
+        name = "BenchPerf",
+        path = dirname(@__DIR__),
+        # url = "https://github.com/tkf/BenchPerf.jl.git",
+    ),
+    PackageSpec(
+        name = "BenchPerfConfigSweeps",
+        path = dirname(@__DIR__),
+        # url = "https://github.com/tkf/BenchPerf.jl.git",
+        subdir = "lib/BenchPerfConfigSweeps",
+    ),
+])
+
 Pkg.instantiate()
