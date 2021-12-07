@@ -35,12 +35,18 @@ uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 deps = ["BenchmarkTools", "Compat", "JSON", "PrettyTables", "Tables"]
 path = "../../.."
 uuid = "368ecf39-6b2b-4c5b-bc36-7e7363bf3045"
-version = "0.1.0-DEV"
+version = "0.1.1-DEV"
 
 [[BenchPerfConfigSweeps]]
-deps = ["BenchPerf", "BenchmarkConfigSweeps", "BenchmarkTools", "Tables"]
+deps = ["BenchPerf", "BenchmarkConfigSweeps", "BenchmarkTools"]
 path = "../../../lib/BenchPerfConfigSweeps"
 uuid = "ff6ab34e-6c4e-401f-aa49-786a197b91d4"
+version = "0.1.0-DEV"
+
+[[BenchPerfConfigSweepsTests]]
+deps = ["Aqua", "BenchPerfConfigSweeps", "Test"]
+path = "../../../lib/BenchPerfConfigSweeps/test/BenchPerfConfigSweepsTests"
+uuid = "9adaed9a-5e85-4496-abec-2a8a76483f3a"
 version = "0.1.0-DEV"
 
 [[BenchPerfTests]]
